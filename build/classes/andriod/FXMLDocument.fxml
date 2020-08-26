@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="rootPane" prefHeight="550.0" prefWidth="320" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="andriod.FXMLDocumentController">
+    <children>
+      <Label fx:id="lblMazeAvenues" layoutX="46.0" layoutY="288.0" text="# Avenues:" />
+      <Label fx:id="lblStreet" layoutX="170.0" layoutY="230.0" text="Street:" />
+      <Label fx:id="lblAvenue" layoutX="46.0" layoutY="230.0" text="Avenue:" />
+      <Label fx:id="lblMazeStreets" layoutX="170.0" layoutY="288.0" text="# Streets:" />
+      <Label fx:id="lblMazeSize" layoutX="19.0" layoutY="261.0" text="Size of Maze">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblNav" layoutX="20.0" layoutY="205.0" text="Navigate to:">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnStart" layoutX="14.0" layoutY="315.0" mnemonicParsing="false" onAction="#handleStart" text="Start" />
+      <Button fx:id="btnExit" layoutX="141.0" layoutY="315.0" mnemonicParsing="false" onAction="#handleExit" text="Exit" />
+      <TextField fx:id="txtfAvenue" layoutX="109.0" layoutY="226.0" prefHeight="25.0" prefWidth="35.0" />
+      <TextField fx:id="txtfStreet" layoutX="228.0" layoutY="226.0" prefHeight="25.0" prefWidth="35.0" />
+      <TextField fx:id="txtfMazeStreet" layoutX="228.0" layoutY="284.0" prefHeight="25.0" prefWidth="35.0" />
+      <TextField fx:id="txtfMazeAvenue" layoutX="109.0" layoutY="284.0" prefHeight="25.0" prefWidth="35.0" />
+      <Text fx:id="txtTitle" layoutX="17.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The Maze Crawling Robot">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Text>
+      <Text fx:id="txtDesc1" layoutX="19.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="     Choose the size of your maze and where you want your robot to navigate to!" wrappingWidth="268.470703125" />
+      <Text fx:id="txtDesc2" layoutX="20.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="     Your maze should have no more than 80 streets and/or avenues, and no less than 2 of either.  You must also choose a location to navigate to that is within you maze. " wrappingWidth="268.470703125" />
+      <Text fx:id="txtDesc3" layoutX="18.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="     Street and avenue numbers start at 0, and your robot begins at 0,0." wrappingWidth="268.470703125" />
+      <Text fx:id="txtMessage" layoutX="22.0" layoutY="367.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="276.13671875" />
+    </children>
+</AnchorPane>

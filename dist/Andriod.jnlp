@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="Andriod.jnlp">
+  <information>
+    <title>Andriod</title>
+    <vendor>Chree</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="Andriod.jar" size="7614" download="eager" />
+    <jar href="lib\becker.jar" size="348715" download="eager" />
+  </resources>
+  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="Andriod" >
+    <param name="requiredFXVersion" value="8.0+"/>
+  </applet-desc>
+  <jfx:javafx-desc  width="800" height="600" main-class="andriod.AndriodApp"  name="Andriod" />
+  <update check="always"/>
+</jnlp>
