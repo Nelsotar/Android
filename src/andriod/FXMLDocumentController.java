@@ -9,7 +9,6 @@ import becker.robots.Direction;
 import becker.robots.MazeCity;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -20,10 +19,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 
 /**
- *
+ *Controller for FXML document. Contains button click handlers and supporting methods.
  * @author TN
  */
-public class FXMLDocumentController implements Initializable {
+public class FXMLDocumentController implements Initializable{
     
     private Label label;
     @FXML
@@ -50,10 +49,6 @@ public class FXMLDocumentController implements Initializable {
     private Text txtDesc2;
     @FXML
     private Text txtDesc3;
-    private int streetNum;
-    private int avenueNum;
-    private int mazeStreetNum;
-    private int mazeAvenueNum;
     @FXML
     private Text txtMessage;
     @FXML
@@ -68,19 +63,34 @@ public class FXMLDocumentController implements Initializable {
     private AnchorPane rootPane;
     private MazeCity city;
     private Andriod data;
+    private int streetNum;
+    private int avenueNum;
+    private int mazeStreetNum;
+    private int mazeAvenueNum;
+    private Thread t;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
     }    
 
     /**
-     * Checks validity of user inputs and launches Maze/Android if valid.
+     * Checks validity of user inputs and launches Maze/Android if valid. Launches 
+     * Maze/Android in a separate thread.
      * @param event 
      */
     @FXML
-    private void handleStart(ActionEvent event) {
+    private void handleStart(ActionEvent event){
         if(isValidInputs()){ 
-            launchAndriod();
+            txtMessage.setText("Navigating to destination.");
+            t = new Thread(new Runnable() {
+               @Override
+                public void run(){
+                    freezeDestinationInputs();
+                    launchAndriod();
+                    unfreezeDestinationInputs();
+                }
+            });
+            t.start();  
         }
     }
     
@@ -185,7 +195,7 @@ public class FXMLDocumentController implements Initializable {
             data = new Andriod(city, 0, 0, Direction.EAST);
         }   
         data.solveMaze(streetNum, avenueNum);
-        txtMessage.setText("Enter new coordintaes to navigate to.");
+        txtMessage.setText("Enter new coordinates to navigate to.");
     }
     
     /**
@@ -197,6 +207,30 @@ public class FXMLDocumentController implements Initializable {
         txtfMazeAvenue.setDisable(true);
         txtfMazeAvenue.setStyle("-fx-background-color: lightgray");
     }
+    
+    /**
+     * Disables the two text fields for setting destination and the start button
+     * , changes their appearance.
+     */
+    private void freezeDestinationInputs(){
+        txtfStreet.setDisable(true);
+        txtfStreet.setStyle("-fx-background-color: lightgray");
+        txtfAvenue.setDisable(true);
+        txtfAvenue.setStyle("-fx-background-color: lightgray");
+        btnStart.setDisable(true);
+    }
+    
+    /**
+     * Enables the two text fields for setting destination and the start button,
+     * changes their appearance back to default.
+     */
+    private void unfreezeDestinationInputs(){
+       txtfStreet.setDisable(false);
+       txtfStreet.setStyle("-fx-background-color: white");
+       txtfAvenue.setDisable(false);
+       txtfAvenue.setStyle("-fx-background-color: white"); 
+       btnStart.setDisable(false);
+    }
 
     /**
      * Exits the application.
@@ -204,7 +238,7 @@ public class FXMLDocumentController implements Initializable {
      */
     @FXML
     private void handleExit(ActionEvent event) {
-        Platform.exit();
+        System.exit(0);
     }
     
 }

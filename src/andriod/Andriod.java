@@ -5,22 +5,13 @@
  */
 package andriod;
 
-/**
- * @author TN
- */
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 import becker.robots.*;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Stack;
 
 /**
- *
+ *Class for a maze-crawling robot called Android.
  * @author TN
  */
 public class Andriod extends Robot{
@@ -121,17 +112,15 @@ public class Andriod extends Robot{
     private boolean isNextVisited(Direction d){
         int street = getStreet();
         int avenue = getAvenue();
-        if(d == Direction.NORTH){
-            return isVisited(street - 1, avenue);
-        }
-        else if(d == Direction.SOUTH){
-            return isVisited(street + 1, avenue);
-        }
-        else if(d == Direction.EAST){
-            return isVisited(street, avenue + 1);
-        }
-        else{
-            return isVisited(street, avenue - 1);
+        switch (d) {
+            case NORTH:
+                return isVisited(street - 1, avenue);
+            case SOUTH:
+                return isVisited(street + 1, avenue);
+            case EAST:
+                return isVisited(street, avenue + 1);
+            default:
+                return isVisited(street, avenue - 1);
         }
     }
     
@@ -178,10 +167,8 @@ public class Andriod extends Robot{
      * @param d Direction to move in.
      */
     private void moveDirection(Direction d){
-        //if(d != Direction.NORTHEAST){
-          faceDirection(d);
-            move();  
-       // }     
+        faceDirection(d);
+        move();       
     }
     
     /**
@@ -280,17 +267,21 @@ public class Andriod extends Robot{
      * @param d Direction for android to face.
      */
     public void faceDirection(Direction d){
-        if(d == Direction.NORTH){
-            faceNorth();
-        }
-        else if(d == Direction.SOUTH){
-            faceSouth();
-        }
-        else if(d == Direction.EAST){
-            faceEast();
-        }
-        else if(d == Direction.WEST){
-            faceWest();
+        switch (d) {
+            case NORTH:
+                faceNorth();
+                break;
+            case SOUTH:
+                faceSouth();
+                break;
+            case EAST:
+                faceEast();
+                break;
+            case WEST:
+                faceWest();
+                break;
+            default:
+                break;
         }
     }
 }

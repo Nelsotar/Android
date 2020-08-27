@@ -6,27 +6,21 @@
 package andriod;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import static javafx.application.Application.launch;
 import javafx.stage.Stage;
 
 /**
  *
  * @author TN
  */
-public class AndriodApp extends Application {
+public class AndriodApp extends Application{
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
-        
-        Scene scene = new Scene(root);
-        stage.setAlwaysOnTop(true);
-        stage.setScene(scene);
-        stage.show();
+            Thread app = new Thread(new RunApp(stage));
+            app.run();
     }
-
+    
     /**
      * @param args the command line arguments
      */
