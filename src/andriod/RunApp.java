@@ -20,8 +20,7 @@ import javafx.stage.Stage;
 public class RunApp implements Runnable{
     Stage stage;
     RunApp(Stage stage){
-        this.stage = stage;
-        
+        this.stage = stage; 
     }
     
     /**

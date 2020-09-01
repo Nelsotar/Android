@@ -65,6 +65,9 @@ public class Andriod extends Robot{
         while(!finalDirections.isEmpty()){
            realAndriod.moveDirection(finalDirections.remove(0));
         }
+        if(realAndriod.canPickThing()){
+            realAndriod.pickThing();
+        }
     }
     
     /**

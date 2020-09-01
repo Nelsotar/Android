@@ -7,6 +7,7 @@ package andriod;
 
 import becker.robots.Direction;
 import becker.robots.MazeCity;
+import becker.robots.Thing;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -193,7 +194,8 @@ public class FXMLDocumentController implements Initializable{
             freezeMazeInputs();
             city = new MazeCity(mazeStreetNum, mazeAvenueNum);
             data = new Andriod(city, 0, 0, Direction.EAST);
-        }   
+        }
+        new Thing(city, streetNum, avenueNum);
         data.solveMaze(streetNum, avenueNum);
         txtMessage.setText("Enter new coordinates to navigate to.");
     }
