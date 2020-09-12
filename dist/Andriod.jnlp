@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="Andriod.jar" size="10453" download="eager" />
+    <jar href="Andriod.jar" size="10451" download="eager" />
     <jar href="lib\becker.jar" size="348715" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="Andriod" >

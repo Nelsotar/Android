@@ -35,7 +35,7 @@
          </font>
       </Text>
       <Text fx:id="txtDesc1" layoutX="19.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="     Choose the size of your maze and where you want your robot to navigate to!" wrappingWidth="268.470703125" />
-      <Text fx:id="txtDesc2" layoutX="20.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="     Your maze should have no more than 80 streets and/or avenues, and no less than 2 of either.  You must also choose a location to navigate to that is within you maze. " wrappingWidth="268.470703125" />
+      <Text fx:id="txtDesc2" layoutX="20.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="     Your maze should have no more than 80 streets and/or avenues, and no less than 2 of either.  You must also choose a location to navigate to that is within your maze. " wrappingWidth="268.470703125" />
       <Text fx:id="txtDesc3" layoutX="18.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="     Street and avenue numbers start at 0, and your robot begins at 0,0." wrappingWidth="268.470703125" />
       <Text fx:id="txtMessage" layoutX="22.0" layoutY="367.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="276.13671875" />
     </children>
